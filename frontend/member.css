@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', 'Arial', 'sans serif';
+}
+body{
+  padding-top: 120px;
+  padding-bottom: 40px;
+  background: #F8F8FA;
+}
+.fixed-header {
+  width: 100%;
+  position: fixed;
+  background: #C62222;
+  padding: 10px 0;
+  color: #000;
+}
+.fixed-footer{
+  width: 100%;
+  position: fixed;
+  background: #C62222;
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+  background-color: #005890;
+}
+.fixed-header{
+  top: 0;
+}
+.fixed-footer{
+  bottom: 0;
+}
+.container{
+  width: 82%;
+  margin: 0 auto; /* Center the DIV horizontally */
+}
+.wrapper {
+  width: 800px;
+  margin: 0 auto; /* Center the DIV horizontally */
+  /*overflow: hidden;*/
+  transition: transform 0.4s ease;
+
+}
+.bar .red-bar:before, .bar.red-bar:after {
+    background: red;
+}
+nav a{
+  color: #000000;
+  text-decoration: none;
+  padding: 7px 25px;
+  display: inline-block;
+}
+.form_container {
+  background: #fff;
+  /*height: 550px;*/
+  border-radius: 15px;
+  padding: 35px;
+}
+.form_container table {
+  margin: auto;
+  width: 85%;
+}
+td input {
+  height: 30px;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 16px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid gray;
+}
+td label {
+  text-align:left;
+  margin-left: 5px;
+  display: block;
+  text-align: left;
+  /*margin: 3px;*/
+}
+fieldset {
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: 2px groove (internal value);
+}
+legend {
+  margin-bottom: 35px;
+}
+fieldset legend div#con-error {
+  width: 650px;
+} 
+td select {
+  margin: 5px;
+  padding: 5px;
+  font-size: 16px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid gray;
+}
+select#state {
+  width: 170px;
+}
+select#race {
+  width: 200px;
+}
+
+td input#sub_btn, td input#rest_btn{
+  width: 180px;
+  height: 40px;
+  font-weight: bold;
+
+}
+input[type=submit]:hover, input[type=reset]:hover{
+  background-color: rgb(0,100,173);
+}
+input[type=submit], input[type=reset] {
+  margin-top: 30px;
+  border: 0;
+  background-color: #0064AD;
+  color: #fff;
+}
+td select option selected{
+  color: #F8F8FA;
+}
+.input-group {
+  margin: 10px 0px 10px 0px;
+}
+.error {
+    width: 700px;
+    margin: 0px auto;
+    margin-bottom: 3em;
+    padding: 10px;
+    border: 1px solid #a94442;
+    color: #a94442;
+    font-size: 14px;
+    background: #f2dede;
+    border-radius: 5px;
+    text-align: left;
+}
