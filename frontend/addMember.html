@@ -6,6 +6,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="head-nav">
@@ -18,18 +25,22 @@
 
 <div class="container">
     <p id="warn-invalid"></p>
-    <form id="main-form">
-        <label>
-            Name
-            <input type="text" id="name-input">
-        </label>
-        <label>
-            Selfie
-            <input accept="image/jpeg, image/png" multiple="" type="file"
-                   id="image-upload">
-        </label>
-        <button type="button" id="submit-button">Add authorized user</button>
-        <a href="/index.html">Nevermind</a>
+    <form class="form-inline" id="main-form">
+
+        <div class="form-group">
+            <label class="sr-only" for="name-input">Name</label>
+            <input class="form-control" type="text" id="name-input"
+                   placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="image-upload">Photo</label>
+            <input accept="image/jpeg, image/png"
+                   multiple="" type="file" id="image-upload">
+        </div>
+        <button type="button" class="btn btn-primary" id="submit-button">
+            Add authorized user
+        </button>
+        <a class="btn btn-default" href="/index.html">Nevermind</a>
     </form>
 </div>
 <script src="js/resize.js"></script>

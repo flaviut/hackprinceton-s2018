@@ -1,9 +1,10 @@
-import requests
-import json
-import cv2
 import pprint
-import serial
+import time
+
 import cognitive_face as CF
+import cv2
+
+from connect import MotorController
 
 subscription_key = "22c83acf03654264809ff64693f7dd99"
 base_url = "https://eastus.api.cognitive.microsoft.com/face/v1.0"
@@ -16,6 +17,9 @@ CF.BaseUrl.set(base_url)
 # img_url = "https://media.glamour.com/photos/5a425fd3b6bcee68da9f86f8/master/w_644,c_limit/best-face-oil.png"
 
 capture = cv2.VideoCapture(0)
+mc = MotorController()
+state, last_change = "locked", time.time()
+
 
 def check_face(img):
     results = CF.face.detect(img)
@@ -26,8 +30,9 @@ def check_face(img):
     confidence = None
 
     if results:
-        face_ids = [ result['faceId'] for result in results ]
-        identify_confidence = CF.face.identify(face_ids=face_ids, person_group_id='lockpeople')
+        face_ids = [result['faceId'] for result in results]
+        identify_confidence = CF.face.identify(face_ids=face_ids,
+                                               person_group_id='lockpeople')
 
     if identify_confidence:
         candidates = identify_confidence[0]['candidates']
@@ -35,38 +40,46 @@ def check_face(img):
         if candidates:
             confidence = candidates[0]['confidence']
 
+    global last_change, state
 
-    with serial.Serial('COM4', timeout=1) as ser:
-        if confidence and confidence > 50:
-            ser.write(1)
-        else:
-            ser.write(0)
+    if confidence and confidence > .50:
+        print("should be unlocked")
+        last_change = time.time()
+        if state == 'locked':
+            print("unlocking")
+            state = 'unlocked'
+            mc.unlock()
+    else:
+        if (time.time() - last_change) > 15 and state == 'unlocked':
+            print("lock timeout")
+            state = 'locked'
+            mc.lock()
 
-    print(face_ids)
-    pprint.pprint(confidence)
-
-while True:
-    ret, frame = capture.read()
-
-    color_image = cv2.cvtColor(frame, cv2.IMREAD_COLOR)
-
-    cv2.imshow('frame', color_image)
-
-    if frame_count >= 60:
-        frame_count = 0
-
-        cv2.imwrite('capture.png', color_image)
-
-        with open('capture.png', 'rb') as img:
-            check_face(img)
+    print(face_ids, confidence)
 
 
-    frame_count += 1
+if __name__ == '__main__':
+    while True:
+        ret, frame = capture.read()
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+        color_image = cv2.cvtColor(frame, cv2.IMREAD_COLOR)
 
-capture.release()
+        cv2.imshow('frame', color_image)
 
-# with open('capture.png', 'rb') as img:
-#     check_face(img)
+        if frame_count >= 60:
+            frame_count = 0
+
+            cv2.imwrite('capture.png', color_image)
+
+            with open('capture.png', 'rb') as img:
+                check_face(img)
+
+        frame_count += 1
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    capture.release()
+
+    # with open('capture.png', 'rb') as img:
+    #     check_face(img)
