@@ -4,7 +4,7 @@
 
 Stepper stepperLock(STEPS, 9, 11, 8, 10);
 Stepper stepperUnlock(STEPS, 8, 10, 9, 11);
-int val = 512;
+int val = 600;
 
 void lock() {
   stepperLock.step(val);
@@ -15,22 +15,18 @@ void unlock() {
 }
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   stepperLock.setSpeed(500);
   stepperUnlock.setSpeed(500);
 
-  lock();
-  
-  unlock();
-  
-  lock();
-  
-  unlock();
 }
 
 void loop() {
-  //    val = Serial.parseInt();
-//  stepper.step(val);
-  Serial.println(val);
+  int action = Serial.parseInt();
+  if(action == 1) {
+    lock();
+  } else if (action == 2) {
+    unlock();
+  }
 }
 
