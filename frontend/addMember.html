@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Add Member</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="head-nav">
+    <div class="site-logo">
+        <a href="/index.html">
+            <img src="logo.png" height="40">
+        </a>
+    </div>
+</div>
+
+<div class="container">
+    <p id="warn-invalid"></p>
+    <form id="main-form">
+        <label>
+            Name
+            <input type="text" id="name-input">
+        </label>
+        <label>
+            Selfie
+            <input accept="image/jpeg, image/png" multiple="" type="file"
+                   id="image-upload">
+        </label>
+        <button type="button" id="submit-button">Add authorized user</button>
+        <a href="/index.html">Nevermind</a>
+    </form>
+</div>
+<script src="js/resize.js"></script>
+<script src="js/azure.js"></script>
+<script src="js/addMember.js"></script>
+
+</body>
+</html>
