@@ -1,167 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-  <!-- webpage info goes here -->
-
-  <title>Home Page</title>
-  <meta charset="utf-8">
-  <meta name="author" content="your name" />
-  <meta name="description" content="" />
- 
-
-<style>
-  /*
-* multi-line comment
-*/
-p{ line-height: 1em; }
-h1, h2, h3, h4{
-  color: #003399;
-  font-weight: normal;
-  line-height: 1.1em;
-  margin: 0 0 .5em 0;
-}
-h1{ font-size: 2.5em; }
-h2{ font-size: 1.5em; }
-a{
-  color: black;
-  text-decoration: none;
-}
-a:hover,
-a:active{ text-decoration: underline; }
-
-body{
-  margin: 0;
-  padding: 0;
-  font-family: arial;
-  font-size: 80%;
-  width: 100%;
-  background-image: url("image/background.jpg");
-  background-repeat: repeat-x repeat-y;
-  line-height: 1.2em;
-}
-#page{ margin: 20px; }
-
-#logo{
-  font-family: georgia;
-  display: inline-block;
-}
-#logo a img {
-  width: 195px;
-}
-#nav{
-  width: 60%;
-  display: inline-block;
-  text-align: right;
-  float: right;
-  margin: 10px;
-}
-#nav ul{}
-#nav ul li{
-  display: inline-block;
-  height: 62px;
-}
-#nav ul li a{
-  padding: 20px;
-  background: orange;
-  color: white;
-}
-#nav ul li a:hover{
-  background-color: #ffb424;
-  box-shadow: 0px 1px 1px #666;
-}
-#nav ul li a:active{ background-color: #ff8f00; }
-
-#content{
-  margin: 30px 0;
-  padding: 20px;
-  clear: both;
-  color: #fff;
-}
-article {
-  width: 500px;
-  float: right;
-  margin-top: 40px;
-  margin-right: 50px;
-  font-size: 19px;
-  line-height: 1.2em;
-}
-#footer {
- position:fixed;
- left:0px;
- bottom:0px;
- height:60px;
- width:100%;
-}
-
-
-div#page p{
-  text-align: right;
-  text-transform: uppercase;
-  font-size: 80%;
-  color: grey;
-}
-#line {
-  height: 80px;
-}
-.addMember {
-  text-align: left;
-  margin-top: 40px;
-  font-size: 22px;
-}
-.addMember a {
-  color: #000;
-  font-weight: normal;
-}
-.centerLogin a:hover {
-  text-decoration: none;
-  cursor: pointer;
-}
-.container {
-    width: 120px;
-    height: 120px;
-    height: auto;
-    margin: 3px;
-    padding: 3px;
-    
-}
-</style>  
+    <meta charset="utf-8">
+    <title>Open Sesame</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 </head>
 <body>
-  <div id="page">
-    <div id="line">
-      <div id="logo">
-        <a href="/" id="logoLink">
-          <img src="#" alt="open sesame logo">
+<nav class="navbar navbar-default">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html">
+            <span style="color: #555">O</span>pen  <span style="color: #555">S</span>esame
         </a>
-      </div>
-    <div id="content">
-      <article>
-        <h1>Welcome Back, User!</h1>
-
-        <div class="addMember">
-          <a href="#">Add Member</a>
-        </div>
-      </article>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/addMember.html">Add authorized user</a></li>
+        </ul>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-3"></div>
-    <div class="col-md-3"></div>
-    <div class="col-md-3"></div>
-</div>
-  </div>
- <div class="container">
-   <div class="row">
-  <div class="col-md-3"></div>
-  <div class="col-md-3"></div>
-  <div class="col-md-3"></div>
-  <div class="col-md-3"></div>
-  </div>
- </div>
+</nav>
+
+<div class="container">
+
+    <img src="logo-inv.png" height="100">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Picture</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody id="auth-user-container"></tbody>
+    </table>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"
+        integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="js/resize.js"></script>
+<script src="js/azure.js"></script>
+<script src="js/index.js"></script>
+
 </body>
 </html>

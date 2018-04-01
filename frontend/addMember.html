@@ -3,46 +3,62 @@
 <head>
     <meta charset="utf-8">
     <title>Add Member</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 </head>
 <body>
-<div class="head-nav">
-    <div class="site-logo">
-        <a href="/index.html">
-            <img src="logo.png" height="40">
+<nav class="navbar navbar-default">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html">
+            <span style="color: #555">O</span>pen  <span style="color: #555">S</span>esame
         </a>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/addMember.html">Add authorized user</a>
+            </li>
+        </ul>
     </div>
-</div>
+</nav>
 
 <div class="container">
-    <p id="warn-invalid"></p>
-    <form class="form-inline" id="main-form">
+    <div class="row">
+        <div class="col-sm-12">
+            <p id="warn-invalid" class="has-error help-block"></p>
+        </div>
+    </div>
+    <form class="form-horizontal" id="main-form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="name-input">Name</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="name-input"
+                       placeholder="Name">
+            </div>
+        </div>
 
         <div class="form-group">
-            <label class="sr-only" for="name-input">Name</label>
-            <input class="form-control" type="text" id="name-input"
-                   placeholder="Name">
+            <label class="col-sm-2 control-label"
+                   for="image-upload">Photo</label>
+            <div class="col-sm-10">
+                <input accept="image/jpeg, image/png" multiple="" type="file"
+                       id="image-upload">
+            </div>
         </div>
+
+
         <div class="form-group">
-            <label for="image-upload">Photo</label>
-            <input accept="image/jpeg, image/png"
-                   multiple="" type="file" id="image-upload">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" class="btn btn-primary"
+                        id="submit-button">
+                    Add authorized user
+                </button>
+                <a class="btn btn-default" href="/index.html">Never mind</a>
+            </div>
         </div>
-        <button type="button" class="btn btn-primary" id="submit-button">
-            Add authorized user
-        </button>
-        <a class="btn btn-default" href="/index.html">Nevermind</a>
     </form>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 <script src="js/resize.js"></script>
 <script src="js/azure.js"></script>
 <script src="js/addMember.js"></script>

@@ -13,15 +13,6 @@ window.Lib = window.Lib || {};
         }
     }
 
-    /** returns Promise -> List */
-    Lib.azure.getPeople = function () {
-        return $.ajax({
-            url: FACE_URL + 'persongroups/lockpeople/persons',
-            beforeSend: setHeaders(),
-            type: 'GET',
-        });
-    };
-
     /** name: string, image: string (data uri) */
     Lib.azure.addPerson = function (name, image) {
         const resize = new Lib.Resize();
