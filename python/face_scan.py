@@ -1,4 +1,6 @@
 import pprint
+import serial
+import os
 import time
 
 import cognitive_face as CF
@@ -6,15 +8,13 @@ import cv2
 
 from connect import MotorController
 
-subscription_key = "22c83acf03654264809ff64693f7dd99"
+subscription_key = os.environ["MS_AZURE_FACE_API_SUB_KEY"]
 base_url = "https://eastus.api.cognitive.microsoft.com/face/v1.0"
 
 frame_count = 0;
 
 CF.Key.set(subscription_key)
 CF.BaseUrl.set(base_url)
-
-# img_url = "https://media.glamour.com/photos/5a425fd3b6bcee68da9f86f8/master/w_644,c_limit/best-face-oil.png"
 
 capture = cv2.VideoCapture(0)
 mc = MotorController()
@@ -80,6 +80,3 @@ if __name__ == '__main__':
             break
 
     capture.release()
-
-    # with open('capture.png', 'rb') as img:
-    #     check_face(img)
